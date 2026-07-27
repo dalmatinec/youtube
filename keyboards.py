@@ -49,14 +49,19 @@ def premium_offer_kb() -> InlineKeyboardMarkup:
 
 
 def quality_kb(qualities: list[dict]) -> InlineKeyboardMarkup:
-    buttons = [
-        [InlineKeyboardButton(
+    buttons = []
+    row = []
+    for q in qualities:
+        row.append(InlineKeyboardButton(
             text=f"{q['height']}p" + (f" (~{q['filesize'] // 1024 // 1024}МБ)" if q["filesize"] else ""),
             callback_data=f"q_{q['format_id']}",
             style=ACTION_STYLE,
-        )]
-        for q in qualities
-    ]
+        ))
+        if len(row) == 2:
+            buttons.append(row)
+            row = []
+    if row:
+        buttons.append(row)
     buttons.append([InlineKeyboardButton(
         text="🎵 Только аудио (mp3)", callback_data="q_audio", style=ACTION_STYLE,
     )])
