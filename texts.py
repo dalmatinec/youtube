@@ -1,0 +1,22 @@
+START_TEXT = (
+    "Привет! Пришли ссылку на видео/фото из YouTube, TikTok или Instagram — скачаю и отправлю сюда.\n\n"
+    "/premium — статус и покупка подписки\n"
+    "/stats — твоя статистика"
+)
+
+SUBSCRIBE_PROMPT = "Чтобы пользоваться ботом, подпишись на канал 👇"
+SUBSCRIBE_CONFIRMED = "✅ Подписка подтверждена, можешь пользоваться ботом!"
+SUBSCRIBE_NOT_YET = "Пока не вижу подписку — попробуй ещё раз через пару секунд."
+SUBSCRIBE_JOIN_BTN = "📢 Подписаться"
+SUBSCRIBE_CHECK_BTN = "✅ Я подписался"
+
+PREMIUM_INFO_ACTIVE = "У тебя активен Premium до {expiry} (UTC).\n\nПреимущества: приоритет в очереди, без рекламы."
+PREMIUM_INFO_NONE = (
+    "Premium даёт приоритет в очереди на скачивание и отключает рекламу на {days} дней.\n\n"
+    "Выбери способ оплаты:"
+)
+BUY_STARS_BTN = "⭐ Оплатить Stars ({price})"
+BUY_MANUAL_BTN = "💬 Оплатить вручную"
+MANUAL_PAYMENT_TEXT = "Напиши {contact} и укажи свой ID: {user_id} — договоримся об оплате и активации."
+PAYMENT_SUCCESS = "✅ Premium активирован на {days} дней. Спасибо!"
+PREMIUM_GRANTED_NOTICE = "🎉 Тебе выдан Premium на {days} дней!"
