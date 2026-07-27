@@ -2,16 +2,18 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 
 import config
 import database as db
 import payments
 import queue_manager
-from handlers import admin, broadcast, download, premium, start, stats
+from handlers import admin, broadcast, download, group, premium, start, stats
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=config.BOT_TOKEN)
+bot = Bot(token=config.BOT_TOKEN, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher()
 
 # Порядок важен: сначала конкретные команды/состояния, download.router — последний,
@@ -22,6 +24,7 @@ dp.include_router(premium.router)
 dp.include_router(admin.router)
 dp.include_router(payments.router)
 dp.include_router(broadcast.router)
+dp.include_router(group.router)
 dp.include_router(download.router)
 
 
