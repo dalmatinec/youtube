@@ -62,7 +62,7 @@ async def handle_link(message: Message):
         await wait_msg.edit_text("Выбери качество:", reply_markup=kb.quality_kb(qualities))
         return
 
-    status = await message.answer("Качаю... ⏳")
+    status = await message.answer(texts.DOWNLOADING)
     await do_download(status, message.from_user.id, url, platform, format_selector=None, audio_only=False)
 
 
@@ -76,7 +76,7 @@ async def handle_quality_choice(callback: CallbackQuery):
 
     choice = callback.data[2:]
     await callback.answer()
-    await callback.message.edit_text("Качаю... ⏳")
+    await callback.message.edit_text(texts.DOWNLOADING)
 
     if choice == "audio":
         await do_download(callback.message, user_id, url, "youtube", format_selector=None, audio_only=True)
