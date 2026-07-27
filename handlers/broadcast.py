@@ -8,6 +8,7 @@ from aiogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMar
 
 import config
 import database as db
+import texts
 
 router = Router()
 
@@ -169,7 +170,7 @@ async def bc_send(callback: CallbackQuery, state: FSMContext):
 
     audience = data["audience"]
     ids = _audience_ids(audience)
-    await callback.message.edit_text(f"🚀 Рассылка запущена на {len(ids)} юзеров...")
+    await callback.message.edit_text(texts.BROADCAST_STARTED.format(count=len(ids)))
 
     bot = callback.bot
     sent, failed = 0, 0
